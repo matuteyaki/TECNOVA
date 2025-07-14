@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | TecNova</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+
+  header {
+      background: linear-gradient(to right, #f6f7f8, #0c3ec7 ,#f6f7f8);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+   header img {
+      width: 200px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    nav {
+      background: #1e293b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #334155;
+    }
+
+    nav a:last-child {
+      border-right: none;
+    }
+
+    nav a:hover {
+      background: #334155;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      color: #1e3a8a;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .redes {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .redes li a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .redes li img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .info-contacto {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .info-contacto p {
+      font-size: 1.1rem;
+      margin: 8px 0;
+    }
+
+    .mapa-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      background: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .contact-form h3 {
+      margin-bottom: 15px;
+      color: #1e3a8a;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background: #1e3a8a;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #3b82f6;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+        .linea-negra {
+      height: 10px; /* Línea más gruesa */
+      background-color: black;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+ <header>
+    <img src="IMG/descarga.png" alt="Logo TecNova" />
+    <h1>TecNova</h1>
+    <p>Innovamos tu mundo digital</p>
+    
+  </header>
+<div class="linea-negra"></div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="contactos.html">Contacto</a>
+    <a href="cliente.html">Clientes</a>
+    <a href="galeria.html">Galería</a>
+    <a href="valoraciones.html">Valoraciones</a>
+    <a href="encuesta.html">Encuesta</a>
+  </nav>
+<div class="linea-negra"></div>
+  <div class="container">
+    <h2>Contáctanos</h2>
+
+    <ul class="redes">
+      <li>
+        <a href="https://web.facebook.com/?locale=es_LA&_rdc=1&_rdr" target="_blank">
+          <img src="IMG/fb.png" alt="Facebook"> Facebook
+        </a>
+      </li>
+      <li>
+        <a href="https://web.whatsapp.com/" target="_blank">
+          <img src="IMG/ws.png" alt="WhatsApp"> WhatsApp
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tiktok.com/es/" target="_blank">
+          <img src="IMG/tk.webp" alt="TikTok"> TikTok
+        </a>
+      </li>
+    </ul>
+
+    <div class="info-contacto">
+      <p>📞 Teléfono: <strong>+51 987 654 321</strong></p>
+      <p>📧 Correo: <strong>contacto@tecnopichanaki.com</strong></p>
+      <a class="mapa-link" href="https://www.google.com/maps/search/TECNO+PICHANAKI/@-10.928372,-74.8820806,16z/data=!3m1!4b1?entry=ttu" target="_blank">
+        📍 Ver ubicación en Google Maps
+      </a>
+    </div>
+
+    <div class="contact-form">
+      <h3>Envíanos un mensaje</h3>
+      <form>
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Tu correo electrónico" required />
+        <textarea name="mensaje" rows="5" placeholder="Tu mensaje..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+ <p>&copy; 2025 TecNova Pichanaki para un mundo conectado</p>
+  </footer>
+
+</body>
+</html>

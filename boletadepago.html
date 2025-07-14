@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boleta de Pago - TecNova</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+ body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #136fca;
+      color: #333;
+    }
+
+
+    header {
+      background: linear-gradient(to right, #f6f7f8, #0c3ec7 ,#f6f7f8);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      width: 200px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+   
+    nav {
+      background: #1e293b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #334155;
+    }
+
+
+    nav a:last-child {
+      border-right: none;
+    }
+
+    nav a:hover {
+      background: #334155;
+    }
+
+    .linea-negra {
+      height: 10px;
+      background-color: black;
+      width: 100%;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #002b5b;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select {
+      padding: 10px;
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f0f4f8;
+    }
+
+    .btn {
+      background: #007acc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #005a99;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .factura-header {
+      display: none;
+      text-align: center;
+      border-bottom: 2px solid #000;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+
+    .factura-header img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .factura-header h2 {
+      font-size: 22px;
+      margin: 10px 0;
+      color: #000;
+    }
+
+    .factura-header p {
+      margin: 2px 0;
+      color: #000;
+      font-size: 14px;
+    }
+
+    @media print {
+      .no-print {
+        display: none;
+      }
+
+      .factura-header {
+        display: block;
+      }
+
+      body {
+        background: white !important;
+      }
+
+      table th, table td {
+        border: 1px solid black;
+      }
+    }
+    @media print {
+  /* ... ya existente ... */
+  th:nth-child(3),
+  td:nth-child(3) {
+    display: none;
+  }
+}
+
+    @media (max-width: 768px) {
+      header img {
+        position: static;
+        display: block;
+        margin: 0 auto 10px auto;
+        width: 150px;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        border-right: none;
+        border-bottom: 1px solid #334155;
+        text-align: center;
+      }
+    }
+    @media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  .container {
+    box-shadow: none;
+    border: 1px solid #000;
+    padding: 40px;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .factura-header {
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
+
+  .total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    color: #000;
+    margin-top: 20px;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  table th, table td {
+    border: 1px solid #000 !important;
+  }
+
+  th, td {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+}
+@media print {
+  body, table {
+    font-family: 'Courier New', monospace;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="no-print">
+    <img src="IMG/descarga.png" alt="Logo TecNova" />
+    <h1>TecNova</h1>
+    <p>Innovamos tu mundo digital</p>
+  </header>
+
+  <div class="linea-negra no-print"></div>
+
+  <nav class="no-print">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="contactos.html">Contacto</a>
+    <a href="cliente.html">Clientes</a>
+    <a href="galeria.html">Servicios</a>
+    <a href="valoraciones.html">Valoraciones</a>
+    <a href="encuesta.html">Encuesta</a>
+    <a href="boletadepago.html">Boleta de Pago</a>
+  </nav>
+
+  <div class="linea-negra no-print"></div>
+
+  <!-- Encabezado para impresión -->
+ <div class="factura-header">
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div>
+      <img src="IMG/descarga.png" alt="Logo Impreso TecNova" style="width: 100px;">
+    </div>
+    <div style="text-align: right;">
+      <h2 style="margin-bottom: 5px;">TecNova S.A.C.</h2>
+      <p>RUC: 12345678910</p>
+      <p>📍 Jr. Pichanaki 456, Chanchamayo</p>
+      <p>📞 +51 987 654 321</p>
+    </div>
+  </div>
+  <hr style="margin: 15px 0; border: 1px solid #000;">
+  
+  <p><strong>Cliente:</strong> <span id="clientePrint"></span></p>
+  <p><strong>Fecha:</strong> <span id="fechaPrint"></span></p>
+ <p><strong>N° de Boleta:</strong> <span id="boletaPrint"></span></p>
+
+</div>
+
+  
+
+  <div class="container">
+    <h2>Boleta de Pago - TecNova</h2>
+   
+<p style="text-align: center; font-size: 18px; margin-bottom: 20px;">
+  N° de Boleta: <span id="numeroBoleta">0001</span>
+
+
+ <button id="btnReiniciar" onclick="reiniciarBoleta()" style="display: none;">Reiniciar N° de Boleta</button>
+
+</p>
+ 
+
+    <div class="no-print">
+      <label>Cliente:</label>
+      <input type="text" id="cliente" placeholder="Nombre del cliente">
+
+      <label>Fecha:</label>
+      <input type="date" id="fecha">
+
+  
+      <label>Servicio:</label>
+    <select id="producto">
+  <option value="" disabled selected>Selecciona un servicio</option>
+  <option value="Soporte Técnico|20.00">Soporte Técnico - S/. 20.00</option>
+  <option value="Formateo de Laptop|30.00">Formateo de Laptop - S/. 30.00</option>
+  <option value="Limpieza Interna de PC|25.00">Limpieza Interna de PC - S/. 25.00</option>
+  <option value="Instalación de Software|15.00">Instalación de Software - S/. 15.00</option>
+  <option value="Configuración de Redes|35.00">Configuración de Redes - S/. 35.00</option>
+  <option value="Reparación de Hardware|50.00">Reparación de Hardware - S/. 50.00</option>
+  <option value="Mantenimiento General|40.00">Mantenimiento General - S/. 40.00</option>
+  <option value="Recuperación de Datos|70.00">Recuperación de Datos - S/. 70.00</option>
+  <option value="Otros Servicios|30.00">Otros Servicios - S/. 30.00</option>
+</select>
+
+      <button class="btn" onclick="agregarProducto()">Agregar</button>
+    </div>
+
+    <table id="tablaProductos">
+      <thead>
+        <tr>
+          <th>Servicio</th>
+          <th>Subtotal (S/.)</th>
+          <th class="no-print">Acción</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="total">
+      Subtotal: S/. <span id="subtotal">0.00</span><br>
+      IGV (18%): S/. <span id="igv">0.00</span><br>
+      <strong>Total a Pagar: S/. <span id="total">0.00</span></strong>
+    </div>
+
+    <div class="no-print" style="margin-top: 20px;">
+      <button class="btn" onclick="imprimirBoleta()">Imprimir / Exportar PDF</button>
+    </div>
+  </div>
+<!-- Reemplaza la función agregarProducto y funciones relacionadas por este nuevo bloque -->
+<script>
+  
+  let subtotalGlobal = 0;
+
+
+  function agregarProducto() {
+    const select = document.getElementById("producto");
+    const selectedValue = select.value;
+
+    if (!selectedValue) {
+      alert("Selecciona un servicio.");
+      return;
+    }
+
+    const [producto, precio] = selectedValue.split('|');
+    const precioNum = parseFloat(precio);
+
+    const tabla = document.getElementById("tablaProductos").getElementsByTagName('tbody')[0];
+    const fila = tabla.insertRow();
+
+    const celdaServicio = fila.insertCell(0);
+    const celdaSubtotal = fila.insertCell(1);
+    const celdaAccion = fila.insertCell(2);
+
+    celdaServicio.innerText = producto;
+    celdaSubtotal.innerText = precioNum.toFixed(2);
+
+    celdaAccion.innerHTML = `
+      <button class="btn" onclick="editarProducto(this)">Editar</button>
+      <button class="btn" style="display:none;" onclick="guardarProducto(this)">Guardar</button>
+      <button class="btn" onclick="eliminarProducto(this)">Eliminar</button>
+    `;
+
+    subtotalGlobal += precioNum;
+    actualizarTotales();
+    select.selectedIndex = 0;
+  }
+
+  function eliminarProducto(btn) {
+    const fila = btn.parentNode.parentNode;
+    const subtotalFila = parseFloat(fila.cells[1].innerText);
+    subtotalGlobal -= subtotalFila;
+    fila.remove();
+    actualizarTotales();
+  }
+
+  function editarProducto(btn) {
+    const fila = btn.parentNode.parentNode;
+    const celdaServicio = fila.cells[0];
+    const celdaSubtotal = fila.cells[1];
+    const btnGuardar = btn.parentNode.querySelector("button:nth-child(2)");
+
+    const servicio = celdaServicio.innerText;
+    const subtotal = celdaSubtotal.innerText;
+
+    celdaServicio.innerHTML = `<input type="text" value="${servicio}" style="width:100%;">`;
+    celdaSubtotal.innerHTML = `<input type="number" value="${subtotal}" step="0.01" style="width:100%;">`;
+
+    btn.style.display = "none";
+    btnGuardar.style.display = "inline-block";
+    subtotalGlobal -= parseFloat(subtotal);
+  }
+
+  function guardarProducto(btn) {
+    const fila = btn.parentNode.parentNode;
+    const inputServicio = fila.cells[0].querySelector("input").value;
+    const inputSubtotal = parseFloat(fila.cells[1].querySelector("input").value);
+
+    if (inputServicio.trim() === "" || isNaN(inputSubtotal) || inputSubtotal < 0) {
+      alert("Ingrese datos válidos.");
+      return;
+    }
+
+    fila.cells[0].innerText = inputServicio;
+    fila.cells[1].innerText = inputSubtotal.toFixed(2);
+
+    const btnEditar = btn.parentNode.querySelector("button:nth-child(1)");
+    btn.style.display = "none";
+    btnEditar.style.display = "inline-block";
+
+    subtotalGlobal += inputSubtotal;
+    actualizarTotales();
+  }
+
+  function actualizarTotales() {
+    const igv = subtotalGlobal * 0.18;
+    const total = subtotalGlobal + igv;
+
+    document.getElementById("subtotal").innerText = subtotalGlobal.toFixed(2);
+    document.getElementById("igv").innerText = igv.toFixed(2);
+    document.getElementById("total").innerText = total.toFixed(2);
+  }
+  function imprimirBoleta() {
+  const cliente = document.getElementById("cliente").value;
+  const fecha = document.getElementById("fecha").value;
+
+  document.getElementById("clientePrint").innerText = cliente || "No especificado";
+  document.getElementById("fechaPrint").innerText = fecha || "No especificado";
+
+  window.print();
+}
+
+// Inicializar número de boleta
+function cargarNumeroBoleta() {
+  let numero = localStorage.getItem("numeroBoleta") || "1";
+  document.getElementById("numeroBoleta").innerText = numero.padStart(4, '0');
+}
+
+function incrementarNumeroBoleta() {
+  let numero = parseInt(localStorage.getItem("numeroBoleta") || "1");
+  numero++;
+  localStorage.setItem("numeroBoleta", numero.toString());
+  document.getElementById("numeroBoleta").innerText = numero.toString().padStart(4, '0');
+}
+
+function imprimirBoleta() {
+  const cliente = document.getElementById("cliente").value;
+  const fecha = document.getElementById("fecha").value;
+  const numeroBoleta = document.getElementById("numeroBoleta").innerText;
+
+  document.getElementById("clientePrint").innerText = cliente || "No especificado";
+  document.getElementById("fechaPrint").innerText = fecha || "No especificado";
+  document.getElementById("boletaPrint").innerText = numeroBoleta;
+
+  window.print();
+  incrementarNumeroBoleta(); // Se incrementa después de imprimir
+}
+
+window.onload = cargarNumeroBoleta;
+function reiniciarBoleta() {
+  if (confirm("¿Estás seguro de que deseas reiniciar el número de boleta?")) {
+    localStorage.setItem("numeroBoleta", 0); // Se reinicia
+    location.reload(); // Recarga la página
+  }
+}
+
+  
+</script>
+
+
+</body>
+</html>   
+
+
+
+<div class="boleta">
+  <div class="info">
+   <button class="btn" style="display: none;" onclick="imprimirBoleta()">Imprimir Boleta</button>
+
+  </div>
+
+<div class="impresion" style="display: none; visibility: hidden;">
+  <h3>Boleta</h3>
+  <p>Cliente: <span id="clientePrint"></span></p>
+  <p>Fecha: <span id="fechaPrint"></span></p>
+  <p>Número de Boleta: <span id="boletaPrint"></span></p>
+</div>
+
+</div>
+
+
+<script>
+  // Generar y mostrar número de boleta
+  let numero = localStorage.getItem("numeroBoleta");
+  if (!numero) {
+    numero = 1;
+  } else {
+   numero = parseInt(numero) + 1;
+  }
+  localStorage.setItem("numeroBoleta", numero);
+  const numeroFormateado = "B" + numero.toString().padStart(5, "0");
+  document.getElementById("numeroBoleta").innerText = numeroFormateado;
+  
+
+  function imprimirBoleta() {
+    const cliente = document.getElementById("cliente").value;
+    const fecha = document.getElementById("fecha").value || new Date().toLocaleDateString("es-PE");
+    const numeroBoleta = document.getElementById("numeroBoleta").innerText;
+
+    // Mostrar datos en la parte de impresión
+    document.getElementById("clientePrint").innerText = cliente || "No especificado";
+    document.getElementById("fechaPrint").innerText = fecha;
+    document.getElementById("boletaPrint").innerText = numeroBoleta;
+
+    // Mostrar solo la parte de impresión para imprimir
+    document.querySelector(".impresion").style.display = "block";
+    document.querySelector(".info").style.display = "none";
+
+    // Imprimir
+    window.print();
+
+    // Volver a mostrar la info original después de imprimir
+    document.querySelector(".info").style.display = "block";
+    document.querySelector(".impresion").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

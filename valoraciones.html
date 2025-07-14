@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | TecNova</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #f6f7f8, #0c3ec7 ,#f6f7f8);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      width: 200px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    nav {
+      background: #1e293b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #334155;
+    }
+
+    nav a:last-child {
+      border-right: none;
+    }
+
+    nav a:hover {
+      background: #334155;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      color: #1e3a8a;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .redes {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .redes li a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .redes li img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .info-contacto {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .info-contacto p {
+      font-size: 1.1rem;
+      margin: 8px 0;
+    }
+
+    .mapa-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      background: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .contact-form h3 {
+      margin-bottom: 15px;
+      color: #1e3a8a;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background: #1e3a8a;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #3b82f6;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Estilos para las opiniones */
+    #opiniones .opinion {
+      background: #f9fafb;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 10px auto;
+      max-width: 600px;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.05);
+    }
+         .linea-negra {
+      height: 10px; /* Línea más gruesa */
+      background-color: black;
+      width: 100%;
+    }
+
+    #opiniones .opinion strong {
+      color: #1e3a8a;
+      font-size: 1.1rem;
+    }
+      body {
+  font-family: 'Segoe UI', sans-serif;
+  /* background-color: #f1f5f9;  */
+  background-image: url('IMG/fondo.jpg'); /* Cambia 'IMG/fondo.jpg' por la ruta de tu imagen local */
+  background-size: cover; /* Para que la imagen cubra todo el fondo */
+  background-position: center; /* Centrar la imagen */
+  background-repeat: no-repeat; /* No repetir la imagen */
+  color: #1e293b;
+  line-height: 1.6;
+}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('IMG/ERTY.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+  </style>
+
+ <header>
+    <img src="IMG/descarga.png" alt="Logo TecNova" />
+    <h1>TecNova</h1>
+    <p>Innovamos tu mundo digital</p>
+    
+  </header>
+<div class="linea-negra"></div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="contactos.html">Contacto</a>
+    <a href="cliente.html">Clientes</a>
+    <a href="galeria.html">Galería</a>
+    <a href="valoraciones.html">Valoraciones</a>
+    <a href="encuesta.html">Encuesta</a>
+    <a href="boletadepago.html">Boleta de Pago</a>
+  </nav>
+  <div class="linea-negra"></div>
+ <h1 style="text-align: center; margin-top: 30px; font-size: 3rem; color: #fcfaf9;">
+  ¿Cómo fue tu visita en TecNova?
+</h1>
+<p class="intro" style="text-align: center; font-size: 1.3rem; color: #f5f4f3;">
+  Queremos saber tu opinión sobre nuestra atención y servicios. ¡Tu experiencia es muy importante!
+</p>
+
+
+  <form id="form-opinion" class="contact-form" aria-label="Formulario de opinión">
+    
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required>
+
+  <label for="servicio">¿Qué servicio recibiste?</label>
+  <select id="servicio" name="servicio" required>
+    <option value="">Selecciona uno</option>
+    <option value="Soporte Técnico">Soporte Técnico</option>
+    <option value="Formateo de Laptop">Formateo de Laptop</option>
+    <option value="Limpieza interna de PC">Limpieza interna de PC</option>
+    <option value="Instalación de software">Instalación de software</option>
+    <option value="Configuración de Redes">Configuración de Redes</option>
+    <option value="Reparación de hardware">Reparación de hardware</option>
+    <option value="Mantenimiento General">Mantenimiento General</option>
+    <option value="Recuperación de Datos">Recuperación de Datos</option>
+    <option value="Otros">Otros</option>
+  </select>
+
+  <label for="calificacion">Selecciona una calificación:</label>
+  <select id="calificacion" required>
+    <option value="">Elige una opción</option>
+    <option value="Bueno">Excelente</option>
+    <option value="Regular">Regular</option>
+    <option value="Malo">Malo</option>
+    <option value="Muy malo">Muy malo</option>
+  </select>
+
+  <label for="comentario">Escribe tu opinión:</label>
+  <textarea id="comentario" rows="4" placeholder="Tu comentario..." required></textarea>
+
+  <button type="submit">Enviar Opinión</button>
+</form>
+
+<h2 style="text-align:center;">Gráfico de Opiniones</h2>
+<canvas id="graficoBarras" style="max-width: 600px; margin: 0 auto; display: block;"></canvas>
+
+<div id="opiniones">
+  <h2 style="text-align:center;">Opiniones Registradas</h2>
+</div>
+
+<script>
+  const form = document.getElementById("form-opinion");
+  const opinionesDiv = document.getElementById("opiniones");
+
+  const contador = {
+    "Bueno": 0,
+    "Regular": 0,
+    "Malo": 0,
+    "Muy malo": 0
+  };
+
+  const ctx = document.getElementById("graficoBarras").getContext("2d");
+  const grafico = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Bueno", "Regular", "Malo", "Muy malo"],
+      datasets: [{
+        label: "Cantidad de opiniones",
+        data: [0, 0, 0, 0],
+        backgroundColor: ["#4caf50", "#ff9800", "#f44336", "#b71c1c"]
+      }]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+
+  function actualizarGrafico() {
+    grafico.data.datasets[0].data = [
+      contador["Bueno"],
+      contador["Regular"],
+      contador["Malo"],
+      contador["Muy malo"]
+    ];
+    grafico.update();
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const servicio = document.getElementById("servicio").value;
+    const calificacion = document.getElementById("calificacion").value;
+    const comentario = document.getElementById("comentario").value.trim();
+
+    if (!nombre || !servicio || !calificacion || !comentario) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
+
+    contador[calificacion]++;
+    actualizarGrafico();
+
+    const nueva = document.createElement("div");
+    nueva.className = "opinion";
+    nueva.innerHTML = `
+      <strong>${nombre}</strong> - <em>${calificacion}</em><br>
+      <b>Servicio:</b> ${servicio}<br>
+      <p>${comentario}</p>
+    `;
+    opinionesDiv.appendChild(nueva);
+
+    form.reset();
+  });
+</script>
+
+  <footer>
+  <p>&copy; 2025 TecNova Pichanaki para un mundo conectado</p>
+  </footer>
+
+</body>
+</html>

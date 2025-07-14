@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería | TecNova</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+
+       header {
+      background: linear-gradient(to right, #f6f7f8, #0c3ec7 ,#f6f7f8);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      width: 200px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    nav {
+      background: #1e293b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #334155;
+    }
+
+    nav a:last-child {
+      border-right: none;
+    }
+
+    nav a:hover {
+      background: #334155;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      color: #1e3a8a;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background: #e2e8f0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item figcaption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(30, 58, 138, 0.8);
+      color: white;
+      width: 100%;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.1rem;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      user-select: none;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      nav a {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+      }
+    }
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  /* background-color: #f1f5f9;  */
+  background-image: url('IMG/fondo.jpg'); /* Cambia 'IMG/fondo.jpg' por la ruta de tu imagen local */
+  background-size: cover; /* Para que la imagen cubra todo el fondo */
+  background-position: center; /* Centrar la imagen */
+  background-repeat: no-repeat; /* No repetir la imagen */
+  color: #1e293b;
+  line-height: 1.6;
+}
+  </style>
+</head>
+<body>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('IMG/WERT.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+        .linea-negra {
+      height: 10px; /* Línea más gruesa */
+      background-color: black;
+      width: 100%;
+    }
+  </style>
+
+  <header>
+    <img src="IMG/descarga.png" alt="Logo TecNova" />
+    <h1>TecNova</h1>
+    <p>Innovamos tu mundo digital</p>
+    
+  </header>
+<div class="linea-negra"></div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="contactos.html">Contacto</a>
+    <a href="cliente.html">Clientes</a>
+    <a href="galeria.html">Galería</a>
+    <a href="valoraciones.html">Valoraciones</a>
+    <a href="encuesta.html">Encuesta</a>
+     <a href="boletadepago.html">Boleta de Pago</a>
+  </nav>
+<div class="linea-negra"></div>
+  <div class="container">
+    <h2>Galería de Servicios y Proyectos TecNova</h2>
+    <div class="gallery">
+      <figure class="gallery-item">
+        <img src="IMG/images (3).jpeg" alt="Soporte Técnico" />
+        <figcaption>Soporte Técnico</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="IMG/rr.jpg" alt="Formateo de Laptop" />
+        <figcaption>Formateo de Laptop</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="IMG/316a4e_d29936cdaaf74e9ea2d82bb5dfd40ef5~mv2.avif" alt="Limpieza Interna de PC" />
+        <figcaption>Limpieza Interna de PC</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="IMG/configuracion-software.png" alt="Instalación de Software" />
+        <figcaption>Instalación de Software</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="IMG/images.jpeg" alt="Configuración de Redes" />
+        <figcaption>Configuración de Redes</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="IMG/repararacion-de-laptop-1.webp" alt="Reparación de Hardware" />
+        <figcaption>Reparación de Hardware</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="IMG/911-computer-hardware-maintenance.webp" alt="Mantenimiento General" />
+        <figcaption>Mantenimiento General</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="IMG/images (1).jpeg" alt="Recuperación de Datos" />
+        <figcaption>Recuperación de Datos</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="IMG/a.jpeg" alt="Otros Servicios" />
+        <figcaption>Otros Servicios</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <footer>
+ <p>&copy; 2025 TecNova Pichanaki para un mundo conectado</p>
+  </footer>
+
+</body>
+</html>

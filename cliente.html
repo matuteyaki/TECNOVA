@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factura | TecNova</title>
+  <style>
+    /* ESTILOS IGUALES QUE YA TENÍAS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('IMG/AFF.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to right, #f6f7f8, #0c3ec7 ,#f6f7f8);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      width: 200px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .linea-negra {
+      height: 10px;
+      background-color: black;
+      width: 100%;
+    }
+
+    nav {
+      background: #1e293b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #334155;
+    }
+
+    nav a:last-child {
+      border-right: none;
+    }
+
+    nav a:hover {
+      background: #334155;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .container h1 {
+      text-align: center;
+      color: #0b2050;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .input-group button {
+      padding: 10px 15px;
+      background-color: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .input-group button:hover {
+      background-color: #3b82f6;
+    }
+
+    ul#taskList {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul#taskList li {
+      background: #f1f5f9;
+      margin-bottom: 10px;
+      padding: 10px 15px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 5px solid #1e3a8a;
+    }
+
+    ul#taskList li input[type="text"] {
+      flex: 1;
+      padding: 5px;
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+
+    ul#taskList li span {
+      flex: 1;
+    }
+
+    .btns {
+      display: flex;
+      gap: 5px;
+    }
+
+    .btns button {
+      background-color: #0b2050;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .btns button:hover {
+      background-color: #3b82f6;
+    }
+
+    footer {
+      background-color: #0b2050;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="IMG/descarga.png" alt="Logo TecNova" />
+    <h1>TecNova</h1>
+    <p>Innovamos tu mundo digital</p>
+  </header>
+
+  <div class="linea-negra"></div>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="contactos.html">Contacto</a>
+    <a href="cliente.html">Clientes</a>
+    <a href="galeria.html">Servicios</a>
+    <a href="valoraciones.html">Valoraciones</a>
+    <a href="encuesta.html">Encuesta</a>
+    <a href="boletadepago.html">Boleta de Pago</a>
+  </nav>
+
+  <div class="linea-negra"></div>
+
+  <div class="container">
+    <h1>🎓 Lista de Clientes</h1>
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Escribe nombre..." />
+      <button onclick="addTask()">Agregar Cliente</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 TecNova Pichanaki para un mundo conectado</p>
+  </footer>
+
+  <script>
+    let clients = JSON.parse(localStorage.getItem("clientes")) || [];
+
+    function saveClients() {
+      localStorage.setItem("clientes", JSON.stringify(clients));
+    }
+
+    function renderClients() {
+      const list = document.getElementById("taskList");
+      list.innerHTML = "";
+      clients.forEach((name, index) => {
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        span.textContent = name;
+
+        const btns = document.createElement("div");
+        btns.className = "btns";
+
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Editar";
+        editBtn.onclick = () => {
+          const inputEdit = document.createElement("input");
+          inputEdit.type = "text";
+          inputEdit.value = span.textContent;
+
+          const saveBtn = document.createElement("button");
+          saveBtn.textContent = "Guardar";
+          saveBtn.onclick = () => {
+            if (inputEdit.value.trim() !== "") {
+              clients[index] = inputEdit.value.trim();
+              saveClients();
+              renderClients();
+            }
+          };
+
+          li.replaceChild(inputEdit, span);
+          btns.replaceChild(saveBtn, editBtn);
+        };
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Eliminar";
+        deleteBtn.onclick = () => {
+          clients.splice(index, 1);
+          saveClients();
+          renderClients();
+        };
+
+        btns.appendChild(editBtn);
+        btns.appendChild(deleteBtn);
+
+        li.appendChild(span);
+        li.appendChild(btns);
+
+        list.appendChild(li);
+      });
+    }
+
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const value = input.value.trim();
+      if (value === "") return;
+      clients.push(value);
+      saveClients();
+      renderClients();
+      input.value = "";
+    }
+
+    // Al cargar la página
+    window.onload = renderClients;
+  </script>
+</body>
+</html>
